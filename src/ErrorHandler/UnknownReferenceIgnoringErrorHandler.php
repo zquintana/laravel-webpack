@@ -1,11 +1,11 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\ErrorHandler;
+namespace ZQuintana\LaravelWebpack\ErrorHandler;
 
 use Exception;
-use Maba\Bundle\WebpackBundle\Exception\ResourceParsingException;
 use Psr\Log\LoggerInterface;
 use Twig_Error_Syntax as SyntaxError;
+use ZQuintana\LaravelWebpack\Exception\ResourceParsingException;
 
 /**
  * This class ignores twig syntax exceptions that designate "Unknowns":

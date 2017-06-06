@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Twig;
+namespace ZQuintana\LaravelWebpack\Twig;
 
 use Twig_TokenStream as TokenStream;
 use Twig_Error_Syntax as SyntaxError;

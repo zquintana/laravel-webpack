@@ -1,8 +1,8 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\AssetProvider;
+namespace ZQuintana\LaravelWebpack\AssetProvider;
 
-use Maba\Bundle\WebpackBundle\AssetProvider\DirectoryProvider\DirectoryProviderInterface;
+use ZQuintana\LaravelWebpack\AssetProvider\DirectoryProvider\DirectoryProviderInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Tests\Service;
+namespace ZQuintana\LaravelWebpack\Tests\Service;
 
 use Codeception\TestCase\Test;
-use Maba\Bundle\WebpackBundle\Exception\AssetNotFoundException;
-use Maba\Bundle\WebpackBundle\Service\AliasManager;
-use Maba\Bundle\WebpackBundle\Service\AssetLocator;
+use ZQuintana\LaravelWebpack\Exception\AssetNotFoundException;
+use ZQuintana\LaravelWebpack\Service\AliasManager;
+use ZQuintana\LaravelWebpack\Service\AssetLocator;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
 use Exception;
 use RuntimeException;
@@ -22,7 +22,7 @@ class AssetLocatorTest extends Test
     public function testLocateAsset($expected, $asset, $expectedAlias = null, $aliasPath = null)
     {
         /** @var MockObject|AliasManager $aliasManager */
-        $aliasManager = $this->getMockBuilder('Maba\Bundle\WebpackBundle\Service\AliasManager')
+        $aliasManager = $this->getMockBuilder('ZQuintana\LaravelWebpack\Service\AliasManager')
             ->disableOriginalConstructor()
             ->getMock()
         ;

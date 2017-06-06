@@ -1,8 +1,8 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Twig;
+namespace ZQuintana\LaravelWebpack\Twig;
 
-use Maba\Bundle\WebpackBundle\Service\AssetManager;
+use ZQuintana\LaravelWebpack\Service\AssetManager;
 use Twig_Token as Token;
 use Twig_TokenParser as TokenParser;
 use Twig_Node_Expression_Function as FunctionExpression;

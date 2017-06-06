@@ -1,7 +1,10 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\AssetProvider\DirectoryProvider;
+namespace ZQuintana\LaravelWebpack\AssetProvider\DirectoryProvider;
 
+/**
+ * Class ConfiguredDirectoryProvider
+ */
 class ConfiguredDirectoryProvider implements DirectoryProviderInterface
 {
     private $directories;

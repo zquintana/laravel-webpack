@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\ErrorHandler;
+namespace ZQuintana\LaravelWebpack\ErrorHandler;
 
 use Exception;
 

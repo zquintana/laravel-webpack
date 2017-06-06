@@ -1,9 +1,9 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\AssetProvider;
+namespace ZQuintana\LaravelWebpack\AssetProvider;
 
-use Maba\Bundle\WebpackBundle\Exception\InvalidContextException;
-use Maba\Bundle\WebpackBundle\Exception\InvalidResourceException;
+use ZQuintana\LaravelWebpack\Exception\InvalidContextException;
+use ZQuintana\LaravelWebpack\Exception\InvalidResourceException;
 
 /**
  * @api

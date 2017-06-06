@@ -1,8 +1,8 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Command;
+namespace ZQuintana\LaravelWebpack\Command;
 
-use Maba\Bundle\WebpackBundle\Compiler\WebpackCompiler;
+use ZQuintana\LaravelWebpack\Compiler\WebpackCompiler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

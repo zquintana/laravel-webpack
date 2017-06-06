@@ -1,8 +1,8 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Service;
+namespace ZQuintana\LaravelWebpack\Service;
 
-use Maba\Bundle\WebpackBundle\Exception\AssetNotFoundException;
+use ZQuintana\LaravelWebpack\Exception\AssetNotFoundException;
 
 class AssetResolver
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Tests\DependencyInjection;
+namespace ZQuintana\LaravelWebpack\Tests\DependencyInjection;
 
 use Codeception\TestCase\Test;
-use Maba\Bundle\WebpackBundle\DependencyInjection\Configuration;
+use ZQuintana\LaravelWebpack\DependencyInjection\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends Test

@@ -1,10 +1,10 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Twig;
+namespace ZQuintana\LaravelWebpack\Twig;
 
 use Twig_Extension as Extension;
 use Twig_SimpleFunction as SimpleFunction;
-use Maba\Bundle\WebpackBundle\Service\AssetManager;
+use ZQuintana\LaravelWebpack\Service\AssetManager;
 
 class WebpackExtension extends Extension
 {

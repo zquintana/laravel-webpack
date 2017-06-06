@@ -1,9 +1,9 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Tests\Service;
+namespace ZQuintana\LaravelWebpack\Tests\Service;
 
 use Codeception\TestCase\Test;
-use Maba\Bundle\WebpackBundle\Service\EntryFileManager;
+use ZQuintana\LaravelWebpack\Service\EntryFileManager;
 
 class EntryFileManagerTest extends Test
 {

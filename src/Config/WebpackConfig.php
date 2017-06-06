@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Config;
+namespace ZQuintana\LaravelWebpack\Config;
 
 class WebpackConfig
 {

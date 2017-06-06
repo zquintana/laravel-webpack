@@ -1,12 +1,12 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Tests\Service;
+namespace ZQuintana\LaravelWebpack\Tests\Service;
 
 use Codeception\TestCase\Test;
 use Exception;
-use Maba\Bundle\WebpackBundle\Service\AssetLocator;
-use Maba\Bundle\WebpackBundle\Service\AssetResolver;
-use Maba\Bundle\WebpackBundle\Service\EntryFileManager;
+use ZQuintana\LaravelWebpack\Service\AssetLocator;
+use ZQuintana\LaravelWebpack\Service\AssetResolver;
+use ZQuintana\LaravelWebpack\Service\EntryFileManager;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
 
 class AssetResolverTest extends Test
@@ -22,7 +22,7 @@ class AssetResolverTest extends Test
     public function testResolveAsset($expected, $asset, $expectedAssetPath, $locatedPath, $entryFile)
     {
         /** @var MockObject|AssetLocator $assetLocator */
-        $assetLocator = $this->getMockBuilder('Maba\Bundle\WebpackBundle\Service\AssetLocator')
+        $assetLocator = $this->getMockBuilder('ZQuintana\LaravelWebpack\Service\AssetLocator')
             ->disableOriginalConstructor()
             ->getMock()
         ;
@@ -33,7 +33,7 @@ class AssetResolverTest extends Test
             ->willReturn($locatedPath)
         ;
         /** @var MockObject|EntryFileManager $entryFileManager */
-        $entryFileManager = $this->getMockBuilder('Maba\Bundle\WebpackBundle\Service\EntryFileManager')
+        $entryFileManager = $this->getMockBuilder('ZQuintana\LaravelWebpack\Service\EntryFileManager')
             ->disableOriginalConstructor()
             ->getMock()
         ;

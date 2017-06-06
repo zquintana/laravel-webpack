@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Service;
+namespace ZQuintana\LaravelWebpack\Service;
 
 use Symfony\Component\Config\FileLocatorInterface;
 use InvalidArgumentException;

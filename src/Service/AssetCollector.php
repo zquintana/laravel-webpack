@@ -1,13 +1,13 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Service;
+namespace ZQuintana\LaravelWebpack\Service;
 
 use ArrayObject;
-use Maba\Bundle\WebpackBundle\AssetProvider\AssetItem;
-use Maba\Bundle\WebpackBundle\AssetProvider\AssetProviderInterface;
-use Maba\Bundle\WebpackBundle\AssetProvider\AssetResult;
-use Maba\Bundle\WebpackBundle\ErrorHandler\ErrorHandlerInterface;
-use Maba\Bundle\WebpackBundle\Exception\ResourceParsingException;
+use ZQuintana\LaravelWebpack\AssetProvider\AssetItem;
+use ZQuintana\LaravelWebpack\AssetProvider\AssetProviderInterface;
+use ZQuintana\LaravelWebpack\AssetProvider\AssetResult;
+use ZQuintana\LaravelWebpack\ErrorHandler\ErrorHandlerInterface;
+use ZQuintana\LaravelWebpack\Exception\ResourceParsingException;
 
 class AssetCollector
 {

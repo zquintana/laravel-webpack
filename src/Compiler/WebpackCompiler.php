@@ -1,11 +1,11 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Compiler;
+namespace ZQuintana\LaravelWebpack\Compiler;
 
-use Maba\Bundle\WebpackBundle\Config\WebpackConfig;
-use Maba\Bundle\WebpackBundle\Config\WebpackConfigManager;
-use Maba\Bundle\WebpackBundle\Exception\NoEntryPointsException;
-use Maba\Bundle\WebpackBundle\Service\ManifestStorage;
+use ZQuintana\LaravelWebpack\Config\WebpackConfig;
+use ZQuintana\LaravelWebpack\Config\WebpackConfigManager;
+use ZQuintana\LaravelWebpack\Exception\NoEntryPointsException;
+use ZQuintana\LaravelWebpack\Service\ManifestStorage;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Process\Process;
 use Closure;

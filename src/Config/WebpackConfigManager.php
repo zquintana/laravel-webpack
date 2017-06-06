@@ -1,14 +1,14 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Config;
+namespace ZQuintana\LaravelWebpack\Config;
 
-use Maba\Bundle\WebpackBundle\ErrorHandler\ErrorHandlerInterface;
-use Maba\Bundle\WebpackBundle\Exception\AssetNotFoundException;
-use Maba\Bundle\WebpackBundle\Exception\NoEntryPointsException;
-use Maba\Bundle\WebpackBundle\Service\AliasManager;
-use Maba\Bundle\WebpackBundle\Service\AssetCollector;
-use Maba\Bundle\WebpackBundle\Service\AssetNameGenerator;
-use Maba\Bundle\WebpackBundle\Service\AssetResolver;
+use ZQuintana\LaravelWebpack\ErrorHandler\ErrorHandlerInterface;
+use ZQuintana\LaravelWebpack\Exception\AssetNotFoundException;
+use ZQuintana\LaravelWebpack\Exception\NoEntryPointsException;
+use ZQuintana\LaravelWebpack\Service\AliasManager;
+use ZQuintana\LaravelWebpack\Service\AssetCollector;
+use ZQuintana\LaravelWebpack\Service\AssetNameGenerator;
+use ZQuintana\LaravelWebpack\Service\AssetResolver;
 
 class WebpackConfigManager
 {

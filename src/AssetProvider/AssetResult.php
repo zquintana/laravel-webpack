@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\AssetProvider;
+namespace ZQuintana\LaravelWebpack\AssetProvider;
 
 /**
  * @api

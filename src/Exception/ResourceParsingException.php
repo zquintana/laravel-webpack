@@ -1,6 +1,6 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Exception;
+namespace ZQuintana\LaravelWebpack\Exception;
 
 class ResourceParsingException extends \RuntimeException
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\AssetProvider;
+namespace ZQuintana\LaravelWebpack\AssetProvider;
 
-use Maba\Bundle\WebpackBundle\ErrorHandler\ErrorHandlerInterface;
-use Maba\Bundle\WebpackBundle\Exception\InvalidContextException;
-use Maba\Bundle\WebpackBundle\Exception\InvalidResourceException;
-use Maba\Bundle\WebpackBundle\Exception\ResourceParsingException;
-use Maba\Bundle\WebpackBundle\Twig\WebpackExtension;
+use ZQuintana\LaravelWebpack\ErrorHandler\ErrorHandlerInterface;
+use ZQuintana\LaravelWebpack\Exception\InvalidContextException;
+use ZQuintana\LaravelWebpack\Exception\InvalidResourceException;
+use ZQuintana\LaravelWebpack\Exception\ResourceParsingException;
+use ZQuintana\LaravelWebpack\Twig\WebpackExtension;
 use Twig_Environment as Environment;
 use Twig_Error_Syntax as SyntaxException;
 use Twig_Node as Node;

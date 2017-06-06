@@ -1,8 +1,8 @@
 <?php
 
-namespace Maba\Bundle\WebpackBundle\Compiler;
+namespace ZQuintana\LaravelWebpack\Compiler;
 
-use Maba\Bundle\WebpackBundle\Config\WebpackConfig;
+use ZQuintana\LaravelWebpack\Config\WebpackConfig;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\Exception\RuntimeException as ProcessRuntimeException;
