@@ -1,7 +1,7 @@
 Package to Integrate Webpack into Laravel
 ====
 
-Laravel Package to help integrating [webpack](https://webpack.js.org/) into Symfony project.
+Package to help integrating [webpack](https://webpack.js.org/) into Laravel project.
 
 What is webpack?
 ----
@@ -331,3 +331,9 @@ In your base template:
 {# ... #}
 <script src="{{ webpack_named_asset('commons', 'js') }}"></script>
 ```
+
+Credits
+-------
+
+- Thanks to [Marius Balčytis](https://github.com/mariusbalcytis) this package is a fork 
+of his Symfony [Webpack Bundle](https://github.com/mariusbalcytis/webpack-bundle).
