@@ -3,6 +3,8 @@ Package to Integrate Webpack into Laravel
 
 Package to help integrating [webpack](https://webpack.js.org/) into Laravel project.
 
+[Documentation](https://zquintana.github.io/laravel-webpack/)
+
 What is webpack?
 ----
 
