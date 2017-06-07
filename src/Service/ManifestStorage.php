@@ -54,6 +54,6 @@ class ManifestStorage
             ));
         }
 
-        return $this->store->get($this->manifestPath);
+        return include storage_path('webpack/'.$this->manifestPath);
     }
 }

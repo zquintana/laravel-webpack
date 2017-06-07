@@ -151,7 +151,7 @@ class WebpackServiceProvider extends ServiceProvider
         $this->app->singleton('zq_webpack.manifest_storage', function (Container $app) {
             return new ManifestStorage(
                 $app->make('zq_webpack.storage'),
-                config('zq_webpack.manifest_file_path')
+                config('zq_webpack.store.manifest_file_path')
             );
         });
         $this->app->singleton('zq_webpack.webpack_process_builder', function (Container $app) {
