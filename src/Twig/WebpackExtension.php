@@ -58,6 +58,6 @@ class WebpackExtension extends Extension
 
     public function getName()
     {
-        return 'maba_webpack';
+        return 'zq_webpack';
     }
 }

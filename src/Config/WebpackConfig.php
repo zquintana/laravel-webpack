@@ -101,7 +101,16 @@ class WebpackConfig
     public function setCacheContext($cacheContext)
     {
         $this->cacheContext = $cacheContext;
+
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullConfigPath()
+    {
+        return $this->configPath;
     }
 
     /**

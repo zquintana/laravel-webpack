@@ -49,7 +49,7 @@
 
         <!-- Internal bundle services -->
 
-        <service id="maba_webpack.asset_collector" class="Maba\Bundle\WebpackBundle\Service\AssetCollector"
+        <service id="maba" class="Maba\Bundle\WebpackBundle\Service\AssetCollector"
                  public="false">
             <argument type="service" id="maba_webpack.error_handler"/>
             <!-- addAssetProvider is called for each service tagged with maba_webpack.asset_provider  -->

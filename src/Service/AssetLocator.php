@@ -5,13 +5,31 @@ namespace ZQuintana\LaravelWebpack\Service;
 use ZQuintana\LaravelWebpack\Exception\AssetNotFoundException;
 use RuntimeException;
 
+/**
+ * Class AssetLocator
+ */
 class AssetLocator
 {
+    /**
+     * @var AliasManager
+     */
     private $aliasManager;
 
-    public function __construct(AliasManager $aliasManager)
+    /**
+     * @var string
+     */
+    private $assetsPath;
+
+
+    /**
+     * AssetLocator constructor.
+     * @param AliasManager $aliasManager
+     * @param string       $assetsPath
+     */
+    public function __construct(AliasManager $aliasManager, $assetsPath)
     {
         $this->aliasManager = $aliasManager;
+        $this->assetsPath   = $assetsPath;
     }
 
     /**
@@ -28,7 +46,7 @@ class AssetLocator
         if (substr($asset, 0, 1) === '@') {
             $locatedAsset = $this->resolveAlias($asset);
         } else {
-            $locatedAsset = $asset;
+            $locatedAsset = $this->assetsPath.DIRECTORY_SEPARATOR.$asset;
         }
 
         if (!file_exists($locatedAsset)) {

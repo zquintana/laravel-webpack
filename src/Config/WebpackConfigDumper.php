@@ -2,28 +2,66 @@
 
 namespace ZQuintana\LaravelWebpack\Config;
 
+use League\Flysystem\Filesystem;
+
+/**
+ * Class WebpackConfigDumper
+ */
 class WebpackConfigDumper
 {
-    private $path;
-    private $includeConfigPath;
-    private $manifestPath;
-    private $environment;
-    private $parameters;
+    /**
+     * @var Filesystem
+     */
+    private $store;
 
     /**
-     * @param string $path full path where config should be dumped
-     * @param string $includeConfigPath path of config to be included inside dumped config
-     * @param string $manifestPath
-     * @param string $environment
-     * @param array $parameters
+     * @var string
      */
-    public function __construct($path, $includeConfigPath, $manifestPath, $environment, array $parameters)
-    {
-        $this->path = $path;
+    private $path;
+
+    /**
+     * @var string
+     */
+    private $includeConfigPath;
+
+    /**
+     * @var string
+     */
+    private $manifestPath;
+
+    /**
+     * @var string
+     */
+    private $environment;
+
+    /**
+     * @var array
+     */
+    private $parameters;
+
+
+    /**
+     * @param Filesystem $store
+     * @param string     $path              full path where config should be dumped
+     * @param string     $includeConfigPath path of config to be included inside dumped config
+     * @param string     $manifestPath
+     * @param string     $environment
+     * @param array      $parameters
+     */
+    public function __construct(
+        Filesystem $store,
+        $path,
+        $includeConfigPath,
+        $manifestPath,
+        $environment,
+        array $parameters
+    ) {
+        $this->store = $store;
+        $this->path  = $path;
         $this->includeConfigPath = $includeConfigPath;
         $this->manifestPath = $manifestPath;
-        $this->environment = $environment;
-        $this->parameters = $parameters;
+        $this->environment  = $environment;
+        $this->parameters   = $parameters;
     }
 
     /**
@@ -40,14 +78,14 @@ class WebpackConfigDumper
                 'entry' => (object)$config->getEntryPoints(),
                 'groups' => (object)$config->getAssetGroups(),
                 'alias' => (object)$config->getAliases(),
-                'manifest_path' => $this->manifestPath,
+                'manifest_path' => storage_path('webpack/'.$this->manifestPath),
                 'environment' => $this->environment,
                 'parameters' => (object)$this->parameters,
             ))
         );
 
-        file_put_contents($this->path, $configContents);
+        $this->store->put($this->path, $configContents);
 
-        return $this->path;
+        return storage_path('webpack/'.$this->path);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace ZQuintana\LaravelWebpack\Compiler;
 
+use League\Flysystem\Filesystem;
 use ZQuintana\LaravelWebpack\Config\WebpackConfig;
 use ZQuintana\LaravelWebpack\Config\WebpackConfigManager;
 use ZQuintana\LaravelWebpack\Exception\NoEntryPointsException;
@@ -12,21 +13,60 @@ use Closure;
 use RuntimeException;
 use Exception;
 
+/**
+ * Class WebpackCompiler
+ */
 class WebpackCompiler
 {
+    /**
+     * @var Filesystem
+     */
+    private $store;
+
+    /**
+     * @var WebpackConfigManager
+     */
     private $webpackConfigManager;
+
+    /**
+     * @var string
+     */
     private $manifestPath;
+
+    /**
+     * @var ManifestStorage
+     */
     private $manifestStorage;
+
+    /**
+     * @var WebpackProcessBuilder
+     */
     private $webpackProcessBuilder;
+
+    /**
+     * @var LoggerInterface
+     */
     private $logger;
 
+
+    /**
+     * WebpackCompiler constructor.
+     * @param Filesystem            $store
+     * @param WebpackConfigManager  $webpackConfigManager
+     * @param string                $manifestPath
+     * @param ManifestStorage       $manifestStorage
+     * @param WebpackProcessBuilder $webpackProcessBuilder
+     * @param LoggerInterface       $logger
+     */
     public function __construct(
+        Filesystem $store,
         WebpackConfigManager $webpackConfigManager,
         $manifestPath,
         ManifestStorage $manifestStorage,
         WebpackProcessBuilder $webpackProcessBuilder,
         LoggerInterface $logger
     ) {
+        $this->store = $store;
         $this->webpackConfigManager = $webpackConfigManager;
         $this->manifestPath = $manifestPath;
         $this->manifestStorage = $manifestStorage;
@@ -34,6 +74,10 @@ class WebpackCompiler
         $this->logger = $logger;
     }
 
+    /**
+     * @param Closure|null       $callback
+     * @param WebpackConfig|null $previousConfig
+     */
     public function compile(Closure $callback = null, WebpackConfig $previousConfig = null)
     {
         // remove manifest file if exists - keep sure we create new one
@@ -124,7 +168,7 @@ class WebpackCompiler
 
     public function saveManifest($failIfMissing = true)
     {
-        if (!file_exists($this->manifestPath)) {
+        if (!$this->store->has($this->manifestPath)) {
             if ($failIfMissing) {
                 throw new RuntimeException(
                     'Missing manifest file in ' . $this->manifestPath
@@ -134,19 +178,19 @@ class WebpackCompiler
             return;
         }
 
-        $manifest = json_decode(file_get_contents($this->manifestPath), true);
+        $manifest = json_decode($this->store->read($this->manifestPath), true);
         $this->manifestStorage->saveManifest($manifest);
 
-        if (!unlink($this->manifestPath)) {
+        if (!$this->store->delete($this->manifestPath)) {
             throw new RuntimeException('Cannot unlink manifest file at ' . $this->manifestPath);
         }
     }
 
     private function removeManifestFile()
     {
-        if (file_exists($this->manifestPath)) {
+        if ($this->store->has($this->manifestPath)) {
             $this->logger->info('Deleting manifest file', array($this->manifestPath));
-            unlink($this->manifestPath);
+            $this->store->delete($this->manifestPath);
         }
     }
 

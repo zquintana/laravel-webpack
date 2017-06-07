@@ -2,10 +2,24 @@
 
 namespace ZQuintana\LaravelWebpack\Service;
 
+/**
+ * Class EntryFileManager
+ */
 class EntryFileManager
 {
+    /**
+     * @var array
+     */
     private $enabledExtensions;
+
+    /**
+     * @var array
+     */
     private $disabledExtensions;
+
+    /**
+     * @var array
+     */
     private $typeMap;
 
     /**
@@ -20,6 +34,10 @@ class EntryFileManager
         $this->typeMap = $typeMap;
     }
 
+    /**
+     * @param string $asset
+     * @return int|null|string
+     */
     public function getEntryFileType($asset)
     {
         $assetPath = $this->removeLoaders($asset);
@@ -27,20 +45,37 @@ class EntryFileManager
         if ($this->isExtensionIncluded($extension)) {
             return $this->mapExtension($extension);
         }
+
         return null;
     }
 
+    /**
+     * @param string $asset
+     *
+     * @return bool
+     */
     public function isEntryFile($asset)
     {
         return $this->getEntryFileType($asset) !== null;
     }
 
+    /**
+     * @param string $asset
+     *
+     * @return bool|string
+     */
     private function removeLoaders($asset)
     {
         $position = strrpos($asset, '!');
+
         return $position === false ? $asset : substr($asset, $position + 1);
     }
 
+    /**
+     * @param string $extension
+     *
+     * @return bool
+     */
     private function isExtensionIncluded($extension)
     {
         if (count($this->enabledExtensions) === 0) {
@@ -50,6 +85,10 @@ class EntryFileManager
         }
     }
 
+    /**
+     * @param string $extension
+     * @return int|string
+     */
     private function mapExtension($extension)
     {
         foreach ($this->typeMap as $mappedExtension => $fromExtensions) {

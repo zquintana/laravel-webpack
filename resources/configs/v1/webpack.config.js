@@ -49,7 +49,7 @@ module.exports = function makeWebpackConfig(options) {
 
         output: {
             // Absolute output directory
-            path: options.parameters.path ? options.parameters.path : __dirname + '/../../web/compiled/',
+            path: options.parameters.path ? options.parameters.path : __dirname + '/../public/compiled/',
 
             // Output path from the view of the page
             publicPath: publicPath,

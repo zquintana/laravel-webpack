@@ -83,6 +83,7 @@ class AssetCollector
         $result = new AssetResult();
         $result->setAssets(array_values((array)$groupedAssets));
         $result->setContext($context);
+
         return $result;
     }
 }

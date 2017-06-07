@@ -48,7 +48,7 @@ class WebpackProcessBuilder
         $processBuilder = new ProcessBuilder();
         $processBuilder->setArguments(array_merge(
             $this->webpackExecutable,
-            array('--config', $config->getConfigPath()),
+            array('--config', $config->getFullConfigPath()),
             $this->webpackArguments
         ));
         $processBuilder->setTimeout(3600);
@@ -67,7 +67,7 @@ class WebpackProcessBuilder
         $processBuilder = new ProcessBuilder();
         $processBuilder->setArguments(array_merge(
             $this->devServerExecutable,
-            array('--config', $config->getConfigPath()),
+            array('--config', $config->getFullConfigPath()),
             $this->devServerArguments
         ));
         $processBuilder->setTimeout(0);

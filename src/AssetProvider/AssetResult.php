@@ -32,6 +32,7 @@ class AssetResult
     public function setAssets(array $assets)
     {
         $this->assets = $assets;
+
         return $this;
     }
 
@@ -42,6 +43,7 @@ class AssetResult
     public function addAsset(AssetItem $asset)
     {
         $this->assets[] = $asset;
+
         return $this;
     }
 
@@ -52,6 +54,7 @@ class AssetResult
     public function addAssets(array $assets)
     {
         $this->assets = array_merge($this->assets, $assets);
+
         return $this;
     }
 
@@ -70,6 +73,10 @@ class AssetResult
     public function setContext($context)
     {
         $this->context = $context;
+        if (!isset($context['assets'])) {
+            $this->context['assets'] = $this->getAssets();
+        }
+
         return $this;
     }
 }

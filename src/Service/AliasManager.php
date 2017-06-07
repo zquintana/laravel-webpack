@@ -2,16 +2,13 @@
 
 namespace ZQuintana\LaravelWebpack\Service;
 
-use Symfony\Component\Config\FileLocatorInterface;
-use InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Container;
 use RuntimeException;
 
+/**
+ * Class AliasManager
+ */
 class AliasManager
 {
-    private $fileLocator;
-    private $registerBundles;
-    private $pathInBundle;
     private $additionalAliases;
 
     /**
@@ -20,23 +17,16 @@ class AliasManager
     private $aliases = null;
 
     /**
-     * @param FileLocatorInterface $fileLocator
-     * @param array $registerBundles
-     * @param string $pathInBundle
      * @param array $additionalAliases
      */
-    public function __construct(
-        FileLocatorInterface $fileLocator,
-        array $registerBundles,
-        $pathInBundle,
-        array $additionalAliases
-    ) {
-        $this->fileLocator = $fileLocator;
-        $this->registerBundles = $registerBundles;
-        $this->pathInBundle = $pathInBundle;
+    public function __construct(array $additionalAliases)
+    {
         $this->additionalAliases = $additionalAliases;
     }
 
+    /**
+     * @return array|null
+     */
     public function getAliases()
     {
         if ($this->aliases !== null) {
@@ -44,25 +34,17 @@ class AliasManager
         }
 
         $aliases = array();
-        foreach ($this->registerBundles as $bundleName) {
-            $aliases['@' . $bundleName] = rtrim($this->fileLocator->locate('@' . $bundleName), '/');
-            try {
-                $shortName = $this->getShortNameForBundle($bundleName);
-                $aliases['@' . $shortName] = $this->fileLocator->locate('@' . $bundleName . '/' . $this->pathInBundle);
-            } catch (InvalidArgumentException $exception) {
-                // ignore if directory not found, as all bundles are registered by default
-            }
-        }
 
         // give priority to additional to be able to overwrite bundle aliases
         foreach ($this->additionalAliases as $alias => $path) {
             $realPath = realpath($path);
             if ($realPath === false) {
                 // just skip - allow non-existing aliases, like default ones
-                unset($aliases['@' . $alias]);
+                unset($aliases['@'.$alias]);
+
                 continue;
             }
-            $aliases['@' . $alias] = $realPath;
+            $aliases['@'.$alias] = $realPath;
         }
 
         $this->aliases = $aliases;
@@ -70,6 +52,11 @@ class AliasManager
         return $aliases;
     }
 
+    /**
+     * @param string $alias
+     *
+     * @return mixed
+     */
     public function getAliasPath($alias)
     {
         $aliases = $this->getAliases();
@@ -78,15 +65,5 @@ class AliasManager
         }
 
         return $aliases[$alias];
-    }
-
-    private function getShortNameForBundle($bundleName)
-    {
-        $shortName = $bundleName;
-        if (mb_substr($bundleName, -6) === 'Bundle') {
-            $shortName = mb_substr($shortName, 0, -6);
-        }
-        // this is used by SensioGenerator bundle when generating extension name from bundle name
-        return Container::underscore($shortName);
     }
 }

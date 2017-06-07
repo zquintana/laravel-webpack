@@ -17,6 +17,19 @@ class AssetItem
      */
     private $group;
 
+
+    /**
+     * AssetItem constructor.
+     *
+     * @param string $resource
+     * @param string $group
+     */
+    public function __construct($resource = null, $group = null)
+    {
+        $this->resource = $resource;
+        $this->group    = $group;
+    }
+
     /**
      * @return string
      */

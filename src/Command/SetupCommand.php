@@ -29,7 +29,7 @@ class SetupCommand extends Command
         $rootDirectory,
         $configPath
     ) {
-        parent::__construct('maba:webpack:setup');
+        parent::__construct('zq:webpack:setup');
 
         $this->pathToPackageV1 = $pathToPackageV1;
         $this->pathToWebpackConfigV1 = $pathToWebpackConfigV1;
@@ -48,7 +48,7 @@ class SetupCommand extends Command
                 InputOption::VALUE_NONE,
                 'If default configuration for webpack v1 should be used'
             )
-            ->setDescription('Initial setup for maba webpack bundle')
+            ->setDescription('Initial setup for webpack bundle')
             ->setHelp(<<<'EOT'
 The <info>%command.name%</info> command copies a default <info>webpack.config.js</info> and <info>package.json</info> files and runs <info>npm install</info>. 
 
