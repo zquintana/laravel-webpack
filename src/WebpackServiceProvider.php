@@ -3,7 +3,6 @@
 namespace ZQuintana\LaravelWebpack;
 
 use Illuminate\Container\Container;
-use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
@@ -79,7 +78,11 @@ class WebpackServiceProvider extends ServiceProvider
             return $collector;
         });
         $this->app->singleton('zq_webpack.alias_manager', function (Container $app) {
-            return new AliasManager(config('zq_webpack.aliases', []));
+            $aliases = array_merge(config('zq_webpack.aliases', []), [
+                'root' => base_path(),
+            ]);
+
+            return new AliasManager($aliases);
         });
         $this->app->singleton('zq_webpack.entry_file_manager', function (Container $app) {
             return new EntryFileManager(
