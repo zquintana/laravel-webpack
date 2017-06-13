@@ -60,6 +60,8 @@ return [
         'path' => resource_path('js'),
         'enabled_extensions' => [],
         'disabled_extensions' => explode(',', 'js,jsx,ts,coffee,es6,ls'),
-        'type_map' => explode(',', 'less,scss,sass,styl'),
+        'type_map' => [
+            'css' => explode(',', 'less,scss,sass,styl'),
+        ],
     ],
 ];
